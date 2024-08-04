@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcmeuqdcm6ogm"]
+[gd_scene load_steps=7 format=3 uid="uid://bcmeuqdcm6ogm"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_qu4l7"]
 [ext_resource type="PackedScene" uid="uid://kucjftgxheeb" path="res://Scenes/player.tscn" id="2_5ix48"]
 [ext_resource type="Texture2D" uid="uid://bhhvmsmg74iuj" path="res://icon.svg" id="3_gfo8a"]
+[ext_resource type="PackedScene" uid="uid://cnw7yv8oe0oaw" path="res://Scenes/jump_pad.tscn" id="4_66dt0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jenty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pn7u"]
-size = Vector2(1116, 20)
+size = Vector2(1553, 20)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_qu4l7")
@@ -35,10 +36,13 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-position = Vector2(153, 291)
+position = Vector2(126.5, 291)
 shape = SubResource("RectangleShape2D_6pn7u")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(195, 130)
+
+[node name="JumpPad" parent="." instance=ExtResource("4_66dt0")]
+position = Vector2(297, 219)
 
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
