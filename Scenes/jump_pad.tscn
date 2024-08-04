@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cnw7yv8oe0oaw"]
 
-[ext_resource type="Script" path="res://Scenes/jump_pad.gd" id="1_4eet1"]
+[ext_resource type="Script" path="res://Scripts/jump_pad.gd" id="1_xqoeg"]
 [ext_resource type="Texture2D" uid="uid://d3yipkq5oo7gs" path="res://Assets/textures/other/Idle.png" id="2_c13sl"]
 [ext_resource type="Texture2D" uid="uid://bu35e6fjfccu3" path="res://Assets/textures/other/Jump (28x28).png" id="3_scgdh"]
 
@@ -81,7 +81,7 @@ size = Vector2(23, 1.5)
 
 [node name="JumpPad" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_4eet1")
+script = ExtResource("1_xqoeg")
 bounce_height = 350
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
