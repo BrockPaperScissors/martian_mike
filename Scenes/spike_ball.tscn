@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c2infynqk2ypc" path="res://Assets/textures/other/Spiked Ball.png" id="2_uasr5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rtmks"]
-radius = 13.0384
+radius = 11.0
 
 [sub_resource type="Animation" id="Animation_pua7a"]
 resource_name = "move"

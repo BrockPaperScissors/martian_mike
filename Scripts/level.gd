@@ -6,7 +6,9 @@ extends Node2D
 
 func _ready():
 	var traps = get_tree().get_nodes_in_group("traps")
-	print(traps)
+	for trap in traps:
+		trap.touched_player.connect(_on_trap_touched_player)
+		
 	
 func _process(delta):
 	if Input.is_action_just_pressed("game_quit"):
