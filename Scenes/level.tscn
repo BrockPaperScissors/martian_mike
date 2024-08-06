@@ -1,14 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://bcmeuqdcm6ogm"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_qu4l7"]
+[ext_resource type="PackedScene" uid="uid://ce8s8ggtbcu36" path="res://Scenes/bg.tscn" id="2_4xcfp"]
 [ext_resource type="PackedScene" uid="uid://kucjftgxheeb" path="res://Scenes/player.tscn" id="2_5ix48"]
-[ext_resource type="Texture2D" uid="uid://bhhvmsmg74iuj" path="res://icon.svg" id="3_gfo8a"]
+[ext_resource type="Texture2D" uid="uid://beifqf28noud6" path="res://Assets/textures/bg/Pink.png" id="3_wso2f"]
 [ext_resource type="PackedScene" uid="uid://cnw7yv8oe0oaw" path="res://Scenes/jump_pad.tscn" id="4_66dt0"]
 [ext_resource type="PackedScene" uid="uid://bbrtb00dex3f3" path="res://Scenes/saw.tscn" id="5_s6q8k"]
 [ext_resource type="PackedScene" uid="uid://ciel6fa3me6o6" path="res://Scenes/spike_ball.tscn" id="5_sm25b"]
 [ext_resource type="PackedScene" uid="uid://d2qcl21xlg61f" path="res://Scenes/tile_map.tscn" id="7_r177m"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jenty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pn7u"]
 size = Vector2(1903, 20)
@@ -16,21 +15,11 @@ size = Vector2(1903, 20)
 [node name="Level" type="Node2D"]
 script = ExtResource("1_qu4l7")
 
+[node name="BG" parent="." instance=ExtResource("2_4xcfp")]
+bg_texture = ExtResource("3_wso2f")
+
 [node name="Player" parent="." instance=ExtResource("2_5ix48")]
 position = Vector2(228, 123)
-
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(79, -137)
-scale = Vector2(32.88, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(2.38419e-07, -1)
-scale = Vector2(0.156345, 0.140625)
-texture = ExtResource("3_gfo8a")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-shape = SubResource("RectangleShape2D_jenty")
 
 [node name="DeathZone" type="Area2D" parent="."]
 collision_layer = 4
