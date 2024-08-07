@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcmeuqdcm6ogm"]
+[gd_scene load_steps=12 format=3 uid="uid://bcmeuqdcm6ogm"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_qu4l7"]
 [ext_resource type="PackedScene" uid="uid://ce8s8ggtbcu36" path="res://Scenes/bg.tscn" id="2_4xcfp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ciel6fa3me6o6" path="res://Scenes/spike_ball.tscn" id="5_sm25b"]
 [ext_resource type="PackedScene" uid="uid://d2qcl21xlg61f" path="res://Scenes/tile_map.tscn" id="7_r177m"]
 [ext_resource type="PackedScene" uid="uid://my8mtys63v47" path="res://Scenes/start.tscn" id="9_2h5ob"]
+[ext_resource type="PackedScene" uid="uid://horkda17oq3i" path="res://Scenes/exit_area.tscn" id="10_no8c1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pn7u"]
 size = Vector2(1903, 20)
@@ -18,9 +19,6 @@ script = ExtResource("1_qu4l7")
 
 [node name="BG" parent="." instance=ExtResource("2_4xcfp")]
 bg_texture = ExtResource("3_wso2f")
-
-[node name="Player" parent="." instance=ExtResource("2_5ix48")]
-position = Vector2(228, 123)
 
 [node name="DeathZone" type="Area2D" parent="."]
 collision_layer = 4
@@ -53,5 +51,11 @@ layer_0/tile_data = PackedInt32Array(458757, 458752, 0, 458758, 458752, 0, 45875
 
 [node name="Start" parent="." instance=ExtResource("9_2h5ob")]
 position = Vector2(21, 233)
+
+[node name="ExitArea" parent="." instance=ExtResource("10_no8c1")]
+position = Vector2(690, 137)
+
+[node name="Player" parent="." instance=ExtResource("2_5ix48")]
+position = Vector2(228, 123)
 
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

@@ -6,9 +6,12 @@ var player = null
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-	player.global_position = start_position.get_spawn_pos()
+	
+	if player != null:
+		player.global_position = start_position.get_spawn_pos()
 	
 	var traps = get_tree().get_nodes_in_group("traps")
+	
 	for trap in traps:
 		trap.touched_player.connect(_on_trap_touched_player)
 		
