@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcmeuqdcm6ogm"]
+[gd_scene load_steps=13 format=3 uid="uid://bcmeuqdcm6ogm"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_qu4l7"]
 [ext_resource type="PackedScene" uid="uid://ce8s8ggtbcu36" path="res://Scenes/bg.tscn" id="2_4xcfp"]
 [ext_resource type="PackedScene" uid="uid://kucjftgxheeb" path="res://Scenes/player.tscn" id="2_5ix48"]
+[ext_resource type="PackedScene" uid="uid://b5o71t8d4c7he" path="res://Scenes/level_2.tscn" id="2_mltue"]
 [ext_resource type="Texture2D" uid="uid://beifqf28noud6" path="res://Assets/textures/bg/Pink.png" id="3_wso2f"]
 [ext_resource type="PackedScene" uid="uid://cnw7yv8oe0oaw" path="res://Scenes/jump_pad.tscn" id="4_66dt0"]
 [ext_resource type="PackedScene" uid="uid://bbrtb00dex3f3" path="res://Scenes/saw.tscn" id="5_s6q8k"]
@@ -16,6 +17,7 @@ size = Vector2(1903, 20)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_qu4l7")
+next_level = ExtResource("2_mltue")
 
 [node name="BG" parent="." instance=ExtResource("2_4xcfp")]
 bg_texture = ExtResource("3_wso2f")
