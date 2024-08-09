@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var animation_player = $AnimationPlayer
 
 @export var gravity = 400
 @export var speed = 250
@@ -18,10 +19,13 @@ func _physics_process(delta):
 	var direction = 0
 	
 	if active == true:
-		if Input.is_action_just_pressed("move_jump") && is_on_floor():
-			jump(jump_force)
-		
 		direction = Input.get_axis("move_left", "move_right")
+		
+		if Input.is_action_just_pressed("move_jump") && is_on_floor():
+			jump(jump_force, direction)
+			
+		
+		
 	
 	if direction != 0:
 		animated_sprite.flip_h = (direction == -1)
@@ -43,5 +47,12 @@ func update_animations(direction):
 		else:
 			animated_sprite.play("jump")
 	
-func jump(force):
+func jump(force, direction):
 	velocity.y = -force
+	
+	var initial_direction = direction
+	
+	if initial_direction == -1:
+		animation_player.play("flip_left")
+	if initial_direction == 1:
+		animation_player.play("flip_right")

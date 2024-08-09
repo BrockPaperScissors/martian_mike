@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://kucjftgxheeb"]
+[gd_scene load_steps=35 format=3 uid="uid://kucjftgxheeb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_afnbl"]
 [ext_resource type="Texture2D" uid="uid://o3ujio5ldjjs" path="res://Assets/textures/player/Fall (32x32).png" id="2_2b3r6"]
@@ -199,6 +199,62 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1ees"]
 size = Vector2(20, 26)
 
+[sub_resource type="Animation" id="Animation_yoer3"]
+resource_name = "flip_left"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -3.14159, -6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_d33lf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xp7tg"]
+resource_name = "flip_right"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v1x8n"]
+_data = {
+"RESET": SubResource("Animation_d33lf"),
+"flip_left": SubResource("Animation_yoer3"),
+"flip_right": SubResource("Animation_xp7tg")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -16)
 collision_layer = 2
@@ -217,3 +273,8 @@ shape = SubResource("RectangleShape2D_u1ees")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_bottom = 255
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v1x8n")
+}
