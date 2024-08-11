@@ -38,10 +38,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -114.0
+offset_top = -110.0
+offset_right = 114.0
+offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "YOU WIN"
@@ -49,7 +49,23 @@ label_settings = SubResource("LabelSettings_815y4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="MenuButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.667
+anchor_right = 0.5
+anchor_bottom = 0.667
+offset_left = -55.0
+offset_top = -33.09
+offset_right = 57.0
+offset_bottom = -1.09
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ca88p")
+text = "MAIN MENU"
+
+[node name="RetryButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -57,12 +73,13 @@ anchor_top = 0.667
 anchor_right = 0.5
 anchor_bottom = 0.667
 offset_left = -81.0
-offset_top = -5.09001
+offset_top = -74.09
 offset_right = 81.0
-offset_bottom = 26.91
+offset_bottom = -42.09
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_ca88p")
-text = "Ok..."
+text = "PLAY AGAIN"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
