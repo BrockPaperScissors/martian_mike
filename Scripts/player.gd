@@ -48,10 +48,10 @@ func update_animations(direction):
 			animated_sprite.play("jump")
 	
 func jump(force, direction):
+	AudioPlayer.play_sound("jump")
+	
 	velocity.y = -force
-	
 	var initial_direction = direction
-	
 	if initial_direction == -1:
 		animation_player.play("flip_left")
 	if initial_direction == 1:
